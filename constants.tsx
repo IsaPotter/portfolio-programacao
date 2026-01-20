@@ -54,10 +54,17 @@ const CSSIcon = () => (
   </svg>
 );
 
+const BootstrapIcon = () => (
+  <svg viewBox="0 0 24 24" className="w-8 h-8" fill="currentColor">
+    <path d="M14 12c1.1 0 2-.9 2-2s-.9-2-2-2h-4v4h4zm0 2h-4v4h4c1.1 0 2-.9 2-2s-.9-2-2-2zm-6-8h6c2.21 0 4 1.79 4 4s-1.79 4-4 4h-2v4h-4V6z" />
+  </svg>
+);
+
 export const SKILLS: Skill[] = [
   { name: 'JavaScript', icon: <JSIcon />, color: 'text-yellow-500' },
   { name: 'PHP', icon: <PHPIcon />, color: 'text-indigo-500' },
   { name: 'SQL / PostgreSQL', icon: <SQLIcon />, color: 'text-blue-600' },
+  { name: 'Bootstrap', icon: <BootstrapIcon />, color: 'text-purple-600' },
   { name: 'HTML5', icon: <HTMLIcon />, color: 'text-orange-600' },
   { name: 'CSS3', icon: <CSSIcon />, color: 'text-sky-500' },
   { name: 'React', icon: <ReactIcon />, color: 'text-sky-400' },
