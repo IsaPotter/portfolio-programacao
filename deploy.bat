@@ -33,7 +33,7 @@ echo.
 
 REM Instalar dependências
 echo 📦 Instalando dependências...
-call npm install
+call npm install --legacy-peer-deps
 echo.
 
 REM Rodar linting

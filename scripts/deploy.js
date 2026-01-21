@@ -51,7 +51,7 @@ async function deploy() {
 
     // Instalar dependências
     log('📦 Instalando dependências...', 'blue');
-    exec('npm install');
+    exec('npm install --legacy-peer-deps');
     log('✅ Dependências instaladas\n', 'green');
 
     // Linting

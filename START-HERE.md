@@ -1,3 +1,4 @@
+
 # 🎉 Vercel Deploy - Pronto!
 
 ## 📌 Seu Checklist Final
