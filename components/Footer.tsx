@@ -9,20 +9,20 @@ const Footer: React.FC = () => {
           <p className="font-bold text-lg">Isabela Paiva Novais</p>
           <p className="text-slate-400 text-sm">Desenvolvedora Full Stack</p>
         </div>
-        
+
         <div className="flex gap-6">
-          <a 
-            href="https://github.com/IsaPotter" 
-            target="_blank" 
+          <a
+            href="https://github.com/IsaPotter"
+            target="_blank"
             rel="noopener noreferrer"
             className="p-3 bg-slate-800 rounded-full hover:bg-violet-600 transition-colors duration-300"
             aria-label="GitHub"
           >
             <GitHubIcon />
           </a>
-          <a 
-            href="https://linkedin.com/in/seu-perfil" 
-            target="_blank" 
+          <a
+            href="https://linkedin.com/in/seu-perfil"
+            target="_blank"
             rel="noopener noreferrer"
             className="p-3 bg-slate-800 rounded-full hover:bg-blue-600 transition-colors duration-300"
             aria-label="LinkedIn"
@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
             <LinkedInIcon />
           </a>
         </div>
-        
+
         <p className="text-slate-500 text-sm">
           © {new Date().getFullYear()} Todos os direitos reservados.
         </p>

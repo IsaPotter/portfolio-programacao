@@ -1,15 +1,16 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { SKILLS } from '../constants';
 import type { Skill } from '../types';
 
 const SkillCard: React.FC<{ skill: Skill }> = ({ skill }) => (
-  <motion.div 
+  <motion.div
     whileHover={{ y: -8, scale: 1.02 }}
     className="group bg-white p-8 rounded-3xl border border-slate-100 flex flex-col items-center justify-center text-center transition-all duration-300 hover:shadow-xl hover:border-violet-100"
   >
-    <div className={`p-4 rounded-2xl bg-slate-50 group-hover:bg-white transition-colors duration-300 ${skill.color}`}>
+    <div
+      className={`p-4 rounded-2xl bg-slate-50 group-hover:bg-white transition-colors duration-300 ${skill.color}`}
+    >
       {skill.icon}
     </div>
     <h3 className="mt-4 text-sm font-bold text-slate-700 tracking-tight uppercase">{skill.name}</h3>
@@ -34,7 +35,7 @@ const Skills: React.FC = () => {
         </motion.div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
           {SKILLS.map((skill, index) => (
-            <motion.div 
+            <motion.div
               key={skill.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
