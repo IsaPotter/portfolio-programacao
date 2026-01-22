@@ -72,6 +72,7 @@ git checkout nome-da-branch
 ## 🔐 Variáveis de Ambiente
 
 ### Adicionar .env.local (local)
+
 ```bash
 # Copiar template
 cp .env.example .env.local
@@ -81,6 +82,7 @@ echo "GEMINI_API_KEY=sua_chave" >> .env.local
 ```
 
 ### Adicionar no Vercel (produção)
+
 ```
 1. Dashboard Vercel → Settings → Environment Variables
 2. Clique "Add"
@@ -114,25 +116,25 @@ npm run
 
 ## 📂 Arquivos Importantes
 
-| Arquivo | Descrição |
-|---------|-----------|
-| `vercel.json` | ⚙️ Configuração do Vercel |
-| `vite.config.ts` | ⚙️ Configuração do Vite |
-| `tsconfig.json` | ⚙️ Configuração TypeScript |
-| `.eslintrc.json` | ⚙️ Regras ESLint |
-| `.prettierrc.json` | ⚙️ Regras Prettier |
-| `package.json` | 📦 Dependências e scripts |
+| Arquivo            | Descrição                  |
+| ------------------ | -------------------------- |
+| `vercel.json`      | ⚙️ Configuração do Vercel  |
+| `vite.config.ts`   | ⚙️ Configuração do Vite    |
+| `tsconfig.json`    | ⚙️ Configuração TypeScript |
+| `.eslintrc.json`   | ⚙️ Regras ESLint           |
+| `.prettierrc.json` | ⚙️ Regras Prettier         |
+| `package.json`     | 📦 Dependências e scripts  |
 
 ---
 
 ## 🔗 Links Rápidos
 
-| Link | Acesso |
-|------|--------|
-| Seu Portfólio | `https://seu-projeto.vercel.app` |
-| Dashboard Vercel | `https://vercel.com/dashboard` |
+| Link               | Acesso                                               |
+| ------------------ | ---------------------------------------------------- |
+| Seu Portfólio      | `https://seu-projeto.vercel.app`                     |
+| Dashboard Vercel   | `https://vercel.com/dashboard`                       |
 | Repositório GitHub | `https://github.com/IsaPotter/portfolio-programacao` |
-| Editor Local | `VS Code ou seu editor favorito` |
+| Editor Local       | `VS Code ou seu editor favorito`                     |
 
 ---
 

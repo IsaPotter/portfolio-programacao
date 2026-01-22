@@ -25,7 +25,7 @@ Um portfólio moderno e responsivo criado com React, TypeScript e Vite. Apresent
 
 ## 📋 Requisitos
 
-- Node.js 16+ 
+- Node.js 16+
 - npm ou yarn
 
 ## 🚀 Instalação e Desenvolvimento
@@ -53,15 +53,15 @@ Um portfólio moderno e responsivo criado com React, TypeScript e Vite. Apresent
 
 ## 📦 Scripts Disponíveis
 
-| Comando | Descrição |
-|---------|-----------|
-| `npm run dev` | Inicia servidor de desenvolvimento |
-| `npm run build` | Faz build para produção |
-| `npm run preview` | Visualiza build de produção localmente |
-| `npm run lint` | Verifica qualidade do código |
-| `npm run lint:fix` | Corrige problemas automáticos |
-| `npm run format` | Formata código com Prettier |
-| `npm run type-check` | Verifica tipos TypeScript |
+| Comando              | Descrição                              |
+| -------------------- | -------------------------------------- |
+| `npm run dev`        | Inicia servidor de desenvolvimento     |
+| `npm run build`      | Faz build para produção                |
+| `npm run preview`    | Visualiza build de produção localmente |
+| `npm run lint`       | Verifica qualidade do código           |
+| `npm run lint:fix`   | Corrige problemas automáticos          |
+| `npm run format`     | Formata código com Prettier            |
+| `npm run type-check` | Verifica tipos TypeScript              |
 
 ## 🏗️ Estrutura do Projeto
 

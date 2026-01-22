@@ -1,4 +1,3 @@
-
 # 🎉 Vercel Deploy - Pronto!
 
 ## 📌 Seu Checklist Final
@@ -18,6 +17,7 @@
 ## 🚀 Apenas 2 Coisas Para Fazer:
 
 ### 1️⃣ Conectar ao Vercel (1ª vez)
+
 ```
 → https://vercel.com
 → Log in com GitHub
@@ -30,7 +30,9 @@
 **Tempo: 2 minutos** ⏱️
 
 ### 2️⃣ Pronto!
+
 Agora sempre que você fizer:
+
 ```bash
 git push origin main
 ```
@@ -57,11 +59,11 @@ git push origin main
 
 ## 📍 Seus Links Importantes
 
-| Link | O Quê |
-|------|-------|
-| https://github.com/IsaPotter/portfolio-programacao | Seu código |
-| https://seu-projeto.vercel.app | Seu portfólio ao vivo |
-| https://vercel.com/dashboard | Gerenciar Deploy |
+| Link                                               | O Quê                 |
+| -------------------------------------------------- | --------------------- |
+| https://github.com/IsaPotter/portfolio-programacao | Seu código            |
+| https://seu-projeto.vercel.app                     | Seu portfólio ao vivo |
+| https://vercel.com/dashboard                       | Gerenciar Deploy      |
 
 ---
 
@@ -75,9 +77,9 @@ git push origin main
 
 📁 Para Documentação (leia na ordem):
 ├── 1. DEPLOY-QUICK.md           ← Comece aqui!
-├── 2. VERCEL-CONFIG-SUMMARY.md  
-├── 3. VERCEL-SETUP.md           
-├── 4. DEPLOY-VERCEL.md          
+├── 2. VERCEL-CONFIG-SUMMARY.md
+├── 3. VERCEL-SETUP.md
+├── 4. DEPLOY-VERCEL.md
 └── QUICK-COMMANDS.md            ← Referência rápida
 
 📁 Para Scripts:
@@ -125,6 +127,7 @@ git push origin main
 ## 🔐 Segurança
 
 Seu portfólio tem:
+
 - ✅ Security headers
 - ✅ Cache otimizado
 - ✅ HTTPS automático
@@ -146,12 +149,14 @@ Seu portfólio tem:
 ## 🎯 Próximos Passos
 
 **Hoje:**
+
 1. Acesse https://vercel.com
 2. Conecte ao GitHub
 3. Importe seu projeto
 4. Pronto! ✅
 
 **Depois:**
+
 1. Customizar domínio (opcional)
 2. Adicionar mais projetos
 3. Otimizar performance
@@ -162,6 +167,7 @@ Seu portfólio tem:
 ## 🤝 Precisa de Ajuda?
 
 Leia os guias nesta ordem:
+
 1. `DEPLOY-QUICK.md` - 5 minutos
 2. `VERCEL-CONFIG-SUMMARY.md` - Visão geral
 3. `VERCEL-SETUP.md` - Passo a passo

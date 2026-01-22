@@ -1,12 +1,14 @@
 # ✅ Checklist de Deploy Vercel
 
 ## Pré-requisitos
+
 - [ ] Conta no GitHub
 - [ ] Repositório criado e código pushado para `main`
 - [ ] Conta no Vercel (pode usar login com GitHub)
 - [ ] Node.js 16+ instalado localmente
 
 ## Passo 1: Preparar o Repositório Localmente
+
 ```bash
 # 1. Certificar-se que está na branch main
 git checkout main
@@ -29,6 +31,7 @@ git push origin main
 ## Passo 2: Conectar ao Vercel
 
 ### Opção A: Via Dashboard Web (Mais Fácil)
+
 1. Acesse **https://vercel.com**
 2. Clique em **"Log in"** → **"GitHub"** (ou crie uma conta)
 3. Autentique com sua conta GitHub
@@ -37,6 +40,7 @@ git push origin main
 6. Clique em **"Import"**
 
 ### Opção B: Via Vercel CLI
+
 ```bash
 # Instalar CLI (opcional)
 npm i -g vercel
@@ -53,6 +57,7 @@ vercel --prod
 Na página de configuração do projeto:
 
 ### Framework Preset
+
 - **Framework**: Vite (será detectado automaticamente)
 - **Root Directory**: ./
 - **Build Command**: `npm run build`
@@ -60,19 +65,24 @@ Na página de configuração do projeto:
 - **Install Command**: `npm install`
 
 ### Environment Variables
+
 Se usar API do Gemini:
+
 - Nome: `GEMINI_API_KEY`
 - Valor: Sua chave de API
 - Clique em **"Add"**
 
-*Deixe em branco se não usar IA no portfólio*
+_Deixe em branco se não usar IA no portfólio_
 
 ### Advanced Settings
+
 Deixe as padrões, exceto:
+
 - **Enable Incremental Static Regeneration**: OFF
 - **Automatically expose System Environment Variables**: ON
 
 ## Passo 4: Deploy Inicial
+
 1. Clique em **"Deploy"**
 2. Espere a build completar (pode levar 1-2 minutos)
 3. Quando terminar, você verá **"Congratulations!"**
@@ -81,11 +91,13 @@ Deixe as padrões, exceto:
 ## Passo 5: Configurações Pós-Deploy
 
 ### Verificar Deploy
+
 - Acesse o dashboard do seu projeto no Vercel
 - Vá até **"Deployments"** para ver histórico
 - Cada push para `main` gera um novo deployment automático
 
 ### Domínio Customizado (Opcional)
+
 1. Em **Settings** → **Domains**
 2. Clique em **"Add"**
 3. Digite seu domínio (ex: `seu-site.com.br`)
@@ -93,7 +105,9 @@ Deixe as padrões, exceto:
 5. Espere propagação DNS (pode levar 24-48h)
 
 ### Configurar CNAME (DNS da seu domínio)
+
 Se usar seu próprio domínio:
+
 1. Vá até seu provedor de domínio (GoDaddy, Namecheap, etc.)
 2. Acesse configurações DNS
 3. Adicione um registro CNAME:
@@ -103,16 +117,19 @@ Se usar seu próprio domínio:
 ## Passo 6: Monitoramento Contínuo
 
 ### Analytics
-- **Settings** → **Analytics** 
+
+- **Settings** → **Analytics**
 - Monitore Web Vitals e performance
 - Ideal para otimizações futuras
 
 ### Alertas
+
 - **Settings** → **Alerts**
 - Configure notificações para falhas de build
 - Alertas por email quando necessário
 
 ### Logs
+
 - **Deployments** → Selecione um deployment
 - Veja logs completos da build
 - Útil para troubleshooting
@@ -121,7 +138,7 @@ Se usar seu próprio domínio:
 
 Adicione ao README.md:
 
-```markdown
+````markdown
 ## 🌐 Deploy
 
 Este projeto está deployado no Vercel:
@@ -129,15 +146,19 @@ Este projeto está deployado no Vercel:
 **[Ver Portfólio ao Vivo](https://seu-dominio-vercel.vercel.app)**
 
 ### Deployar Atualizações
+
 Basta fazer `git push` para `main`:
+
 ```bash
 git add .
 git commit -m "sua mensagem"
 git push origin main
 ```
+````
 
 O Vercel deployará automaticamente em poucos segundos!
-```
+
+````
 
 ## Troubleshooting
 
@@ -149,11 +170,12 @@ O Vercel deployará automaticamente em poucos segundos!
 npm ci  # instala versões exatas do package-lock.json
 npm run build
 npm run preview
-```
+````
 
 ### ❌ Erro: "Cannot find module X"
 
 **Solução:**
+
 - Verifique se o módulo está em `dependencies` (não `devDependencies`)
 - Para runtime: `npm install pacote`
 - Para dev: `npm install --save-dev pacote`
@@ -162,6 +184,7 @@ npm run preview
 ### ❌ Variáveis de Ambiente não funcionam
 
 **Solução:**
+
 1. Confirme que adicionou em **Settings** → **Environment Variables**
 2. Redeploy clicando em **"Redeploy"** (não apenas push)
 3. Verifique o nome da variável - é case-sensitive
@@ -169,6 +192,7 @@ npm run preview
 ### ❌ Domínio customizado não funciona
 
 **Solução:**
+
 1. Verifique propagação DNS: https://www.nslookup.io
 2. Aguarde 24-48h após configurar CNAME
 3. Teste com: `nslookup seu-dominio.com`

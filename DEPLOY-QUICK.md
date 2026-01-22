@@ -3,13 +3,16 @@
 ## 3 Passos Principais:
 
 ### 1️⃣ Vercel.com
+
 Acesse https://vercel.com
 
 ### 2️⃣ Conectar GitHub
+
 - Clique "Log in" → "GitHub"
 - Autorize Vercel
 
 ### 3️⃣ Importar Projeto
+
 - Clique "New Project"
 - Selecione "portfólio-de-programação"
 - Clique "Import"
@@ -18,7 +21,7 @@ Acesse https://vercel.com
 
 ## Pronto! ✅
 
-Seu portfólio está ao vivo! 
+Seu portfólio está ao vivo!
 
 **Tudo que você precisa fazer agora é:**
 

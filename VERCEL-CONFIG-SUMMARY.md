@@ -3,7 +3,9 @@
 ## ✅ O que foi configurado
 
 ### 1. **vercel.json** ⚙️
+
 Arquivo de configuração do Vercel com:
+
 - ✅ Build command otimizado
 - ✅ Framework Vite detectado
 - ✅ Output directory correto (`dist/`)
@@ -14,23 +16,25 @@ Arquivo de configuração do Vercel com:
 
 ### 2. **Documentação de Deploy** 📚
 
-| Arquivo | Conteúdo |
-|---------|----------|
-| `DEPLOY-QUICK.md` | ⚡ Guia de 5 minutos - comece aqui |
-| `VERCEL-SETUP.md` | 📖 Passo a passo detalhado |
+| Arquivo            | Conteúdo                              |
+| ------------------ | ------------------------------------- |
+| `DEPLOY-QUICK.md`  | ⚡ Guia de 5 minutos - comece aqui    |
+| `VERCEL-SETUP.md`  | 📖 Passo a passo detalhado            |
 | `DEPLOY-VERCEL.md` | 🔍 Documentação completa e referência |
-| `.env.example` | 📝 Template de variáveis de ambiente |
+| `.env.example`     | 📝 Template de variáveis de ambiente  |
 
 ### 3. **Scripts de Deploy** 🚀
 
-| Script | Uso |
-|--------|-----|
+| Script              | Uso                                                   |
+| ------------------- | ----------------------------------------------------- |
 | `scripts/deploy.js` | `npm run deploy` - Deploy automático com verificações |
-| `deploy.sh` | Linux/Mac - Script bash de deploy |
-| `deploy.bat` | Windows - Script batch de deploy |
+| `deploy.sh`         | Linux/Mac - Script bash de deploy                     |
+| `deploy.bat`        | Windows - Script batch de deploy                      |
 
 ### 4. **GitHub Actions CI/CD** 🔄
+
 Já configurado em `.github/workflows/ci-cd.yml`:
+
 - Testa em push para main/develop
 - Roda linting, type-check, build
 - Deploy automático para Vercel em push para main
@@ -40,10 +44,13 @@ Já configurado em `.github/workflows/ci-cd.yml`:
 ## 🚀 Como Usar
 
 ### Opção 1: Deploy com 1 Comando
+
 ```bash
 npm run deploy
 ```
+
 Isso faz tudo automaticamente:
+
 - ✅ Verifica qualidade do código
 - ✅ Formata e lint
 - ✅ Faz build de produção
@@ -51,14 +58,17 @@ Isso faz tudo automaticamente:
 - ✅ Vercel deploya automaticamente
 
 ### Opção 2: Deploy Manual
+
 ```bash
 git add .
 git commit -m "seu mensagem"
 git push origin main
 ```
+
 Vercel detecta o push e deploya automaticamente.
 
 ### Opção 3: Deploy pelo Vercel CLI
+
 ```bash
 vercel --prod
 ```
@@ -68,6 +78,7 @@ vercel --prod
 ## 🔐 Segurança Configurada
 
 ### Headers de Segurança ✅
+
 ```
 X-Content-Type-Options: nosniff
 X-Frame-Options: DENY
@@ -76,6 +87,7 @@ Referrer-Policy: strict-origin-when-cross-origin
 ```
 
 ### Cache Inteligente ✅
+
 - HTML: 1 hora
 - Assets: 1 ano (immutable)
 
@@ -84,6 +96,7 @@ Referrer-Policy: strict-origin-when-cross-origin
 ## 📊 Próximos Passos
 
 ### 1. Conectar ao Vercel (primeira vez)
+
 ```
 1. Acesse https://vercel.com
 2. Clique "Log in" → "GitHub"
@@ -94,6 +107,7 @@ Referrer-Policy: strict-origin-when-cross-origin
 ```
 
 ### 2. Configurar Domínio (opcional)
+
 ```
 1. Em Settings → Domains
 2. Adicione seu domínio
@@ -102,6 +116,7 @@ Referrer-Policy: strict-origin-when-cross-origin
 ```
 
 ### 3. Monitorar Deploy
+
 - Dashboard Vercel: https://vercel.com/dashboard
 - GitHub Actions: Seu repositório → "Actions"
 - Analytics: Seu projeto Vercel → "Analytics"
@@ -155,6 +170,7 @@ Vercel faz deploy
 ## 🐛 Troubleshooting Rápido
 
 ### Build falha no Vercel
+
 ```bash
 # Teste localmente como Vercel faz
 npm ci
@@ -162,12 +178,14 @@ npm run build
 ```
 
 ### Variáveis de ambiente não funcionam
+
 ```
 1. Adicione em Vercel Dashboard → Settings → Environment Variables
 2. Clique "Redeploy" para aplicar
 ```
 
 ### Domínio não funciona
+
 ```
 1. Espere 24-48h pela propagação DNS
 2. Teste: nslookup seu-dominio.com
