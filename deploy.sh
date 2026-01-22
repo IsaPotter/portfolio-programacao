@@ -34,7 +34,7 @@ echo ""
 
 # Instalar dependências
 echo "📦 Instalando dependências..."
-npm install
+npm install --legacy-peer-deps
 echo ""
 
 # Rodar linting
