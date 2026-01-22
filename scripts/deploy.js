@@ -16,10 +16,11 @@ function log(message, color = 'reset') {
   console.log(`${colors[color]}${message}${colors.reset}`);
 }
 
-function exec(command, silent = false) {
+function exec(command, silent = false, throwError = false) {
   try {
     return execSync(command, { stdio: silent ? 'pipe' : 'inherit', encoding: 'utf-8' });
   } catch (error) {
+    if (throwError) throw error;
     log(`❌ Erro ao executar: ${command}`, 'red');
     process.exit(1);
   }
@@ -41,7 +42,7 @@ async function deploy() {
     // Verificar mudanças não commitadas
     log('🔍 Verificando status do Git...', 'blue');
     try {
-      exec('git diff-index --quiet HEAD --', true);
+      exec('git diff-index --quiet HEAD --', true, true);
       log('✅ Nenhuma mudança não commitada\n', 'green');
     } catch {
       log('⚠️  Há mudanças não commitadas, organizando...\n', 'yellow');
@@ -81,7 +82,7 @@ async function deploy() {
     log('📤 Enviando mudanças para GitHub...', 'blue');
     exec('git add -A');
     try {
-      exec('git commit -m "chore: pre-deploy format"');
+      exec('git commit -m "chore: pre-deploy format"', false, true);
     } catch {
       // Pode não haver mudanças para commitar
     }

@@ -1,6 +1,5 @@
 
-import React from 'react';
-import type { Project, Skill, Experience } from './types';
+import type { Experience, Project, Skill } from './types';
 
 // SVG Icons
 const ReactIcon = () => (
@@ -60,40 +59,44 @@ const BootstrapIcon = () => (
   </svg>
 );
 
+export const GitHubIcon = () => (
+  <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor">
+    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+  </svg>
+);
+
+export const LinkedInIcon = () => (
+  <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor">
+    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+  </svg>
+);
+
 export const SKILLS: Skill[] = [
   { name: 'JavaScript', icon: <JSIcon />, color: 'text-yellow-500' },
   { name: 'PHP', icon: <PHPIcon />, color: 'text-indigo-500' },
-  { name: 'SQL / PostgreSQL', icon: <SQLIcon />, color: 'text-blue-600' },
+  { name: 'SQL / MYSQL', icon: <SQLIcon />, color: 'text-blue-600' },
   { name: 'Bootstrap', icon: <BootstrapIcon />, color: 'text-purple-600' },
   { name: 'HTML5', icon: <HTMLIcon />, color: 'text-orange-600' },
   { name: 'CSS3', icon: <CSSIcon />, color: 'text-sky-500' },
-  { name: 'React', icon: <ReactIcon />, color: 'text-sky-400' },
+  
 ];
 
 export const PROJECTS: Project[] = [
   {
-    title: 'Projeto JES',
-    description: 'Site institucional completo para o coletivo Jovens Empreendedores Sustentáveis. Foco em impacto social e sustentabilidade, com arquitetura performática e design responsivo.',
-    imageUrl: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=800',
-    tags: ['React', 'Node.js', 'Tailwind', 'Sustentabilidade'],
-    liveUrl: 'https://github.com/IsaPotter/JES',
-    repoUrl: 'https://github.com/IsaPotter/JES',
+    title: 'Site Pizzaria',
+    description: 'Sistema web completo para pizzaria com cardápio interativo e gestão de pedidos. Interface moderna e responsiva focada na experiência do usuário.',
+    imageUrl: '',
+    tags: ['PHP', 'JavaScript', 'Bootstrap', 'HTML', 'CSS'],
+    liveUrl: 'https://github.com/IsaPotter/site',
+    repoUrl: 'https://github.com/IsaPotter/site',
   },
   {
-    title: 'Sistema de Gestão PHP',
-    description: 'Aplicação robusta desenvolvida em PHP e SQL para controle de inventário e gestão de fluxos internos com autenticação segura.',
-    imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
-    tags: ['PHP', 'SQL', 'Bootstrap', 'JavaScript'],
-    liveUrl: '#',
-    repoUrl: 'https://github.com/IsaPotter',
-  },
-  {
-    title: 'Landing Page Criativa',
-    description: 'Interface moderna focada em conversão, utilizando as melhores práticas de HTML5 semântico e CSS3 avançado (Flexbox/Grid).',
-    imageUrl: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800',
-    tags: ['HTML5', 'CSS3', 'UI Design'],
-    liveUrl: '#',
-    repoUrl: 'https://github.com/IsaPotter',
+    title: 'Quiz Java',
+    description: 'Aplicação de perguntas e respostas desenvolvida em Java, focada em lógica de programação e conceitos de Orientação a Objetos.',
+    imageUrl: '',
+    tags: ['Java'],
+    liveUrl: 'https://github.com/IsaPotter/QUIZ',
+    repoUrl: 'https://github.com/IsaPotter/QUIZ',
   },
 ];
 
@@ -110,4 +113,12 @@ export const EXPERIENCES: Experience[] = [
     period: 'Em andamento',
     description: 'Estudo focado em lógica de programação, algoritmos, modelagem de dados SQL e arquitetura de sistemas web.',
   },
+];
+
+export const NAV_LINKS = [
+  { label: 'Sobre', href: '#about' },
+  { label: 'Projetos', href: '#projects' },
+  { label: 'Habilidades', href: '#skills' },
+  { label: 'Experiência', href: '#experience' },
+  { label: 'Contato', href: '#contact' },
 ];

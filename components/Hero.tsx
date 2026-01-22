@@ -1,10 +1,33 @@
 
-import React from 'react';
 import { motion } from 'framer-motion';
+import React, { useState } from 'react';
 
 const Hero: React.FC = () => {
+  // Começa tentando .jpeg, depois tenta outras se falhar
+  const [imgSrc, setImgSrc] = useState('/foto-perfil.jpeg');
+  const [hasError, setHasError] = useState(false);
+
   const handleCTAClick = (targetId: string) => {
     document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleImgError = () => {
+    if (imgSrc === '/foto-perfil.jpeg') {
+      setImgSrc('/foto-perfil.jpg'); // Tenta .jpg
+    } else if (imgSrc === '/foto-perfil.jpg') {
+      setImgSrc('/foto-perfil.png'); // Tenta .png
+    } else if (imgSrc === '/foto-perfil.png') {
+      // Tenta o nome original do WhatsApp caso não tenha renomeado
+      setImgSrc('/WhatsApp Image 2026-01-21 at 20.39.12.jpeg');
+    } else if (imgSrc === '/WhatsApp Image 2026-01-21 at 20.39.12.jpeg') {
+      // Tenta procurar na pasta "geral progamaçao" caso tenha copiado a pasta inteira para public
+      setImgSrc('/geral progamaçao/WhatsApp Image 2026-01-21 at 20.39.12.jpeg');
+    } else if (imgSrc === '/geral progamaçao/WhatsApp Image 2026-01-21 at 20.39.12.jpeg') {
+      // Tenta a foto do GitHub como último recurso
+      setImgSrc('https://github.com/IsaPotter.png');
+    } else {
+      setHasError(true); // Desiste e mostra iniciais
+    }
   };
 
   return (
@@ -23,7 +46,7 @@ const Hero: React.FC = () => {
             <h2 className="text-violet-600 font-bold tracking-widest uppercase text-sm mb-4">Desenvolvedora Full Stack</h2>
             <h1 className="text-5xl md:text-7xl font-black text-slate-900 leading-tight mb-6">
               Isabela <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-500">Novais</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-indigo-500">Paiva Novais</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-xl leading-relaxed">
               Transformando ideias em soluções digitais elegantes e eficientes. Especialista em construir experiências web modernas com foco em performance e escalabilidade.
@@ -50,12 +73,19 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
           >
-            <div className="relative z-10 w-full aspect-square rounded-3xl overflow-hidden shadow-2xl rotate-3 bg-violet-50 border-8 border-white">
-               <img 
-                 src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" 
-                 alt="Portrait" 
-                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-               />
+            <div className="relative z-10 w-full aspect-square rounded-full overflow-hidden shadow-2xl rotate-3 bg-violet-50 border-8 border-white">
+               {!hasError ? (
+                 <img 
+                   src={imgSrc}
+                   alt="Isabela Paiva Novais" 
+                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                   onError={handleImgError}
+                 />
+               ) : (
+                 <div className="w-full h-full bg-gradient-to-br from-violet-100 to-indigo-50 flex items-center justify-center">
+                    <span className="text-9xl font-black text-violet-200/50 select-none">IPN</span>
+                 </div>
+               )}
             </div>
             {/* Abstract decorative elements */}
             <div className="absolute -top-6 -right-6 w-24 h-24 bg-violet-200 rounded-2xl -rotate-12 z-0"></div>
