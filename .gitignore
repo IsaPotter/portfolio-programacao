@@ -1,0 +1,10 @@
+*
+!.gitignore
+!manage.py
+!config/
+!portfolio/
+!templates/
+!static/
+!requirements.txt
+!README.md
+!.env.example
