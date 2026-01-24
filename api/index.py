@@ -1,18 +1,22 @@
-import sys
 import os
+import sys
 from pathlib import Path
 
-# Adicionar o caminho do projeto
+# Add project to path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-# Configurar Django
+# Configure Django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
 
 import django
 django.setup()
 
-from config.wsgi import application
+from django.core.wsgi import get_wsgi_application
+from django.http import HttpResponse
+
+app = get_wsgi_application()
 
 def handler(request):
-    return application(request)
+    return app(request)
+
 
