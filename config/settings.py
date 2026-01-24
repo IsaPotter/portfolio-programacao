@@ -4,6 +4,13 @@ Django settings for portfolio project.
 
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+# Carregar .env.production em produção
+if os.getenv('VERCEL'):
+    load_dotenv(Path(__file__).resolve().parent.parent / '.env.production')
+else:
+    load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 

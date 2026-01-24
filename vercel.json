@@ -3,7 +3,7 @@
   "buildCommand": "pip install -r requirements.txt && python manage.py collectstatic --noinput",
   "builds": [
     {
-      "src": "vercel.py",
+      "src": "api/index.py",
       "use": "@vercel/python",
       "config": { "maxLambdaSize": "15mb", "runtime": "python3.11" }
     }
@@ -15,7 +15,10 @@
     },
     {
       "src": "/(.*)",
-      "dest": "vercel.py"
+      "dest": "api/index.py"
     }
-  ]
+  ],
+  "env": {
+    "PYTHONPATH": "/var/task"
+  }
 }
