@@ -18,8 +18,10 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-change-this-in-production'
 
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*').split(',')
-# Adiciona domínios do Vercel e localhost sempre
+# ALLOWED_HOSTS - Adiciona dinamicamente o domínio do Vercel
+ALLOWED_HOSTS = ['*']
+if os.getenv('VERCEL_URL'):
+    ALLOWED_HOSTS.append(os.getenv('VERCEL_URL'))
 ALLOWED_HOSTS.extend(['.vercel.app', '.now.sh', 'localhost', '127.0.0.1'])
 
 INSTALLED_APPS = [
