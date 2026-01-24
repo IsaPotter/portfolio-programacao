@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - Isabel</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="#" class="nav-brand">{{ profile_name }}</a>
+                <ul class="nav-menu">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Hi, I'm {{ profile_name }}</h1>
+                <p class="hero-subtitle">{{ profile_title }}</p>
+                <p class="hero-description">I build modern web applications with React, TypeScript, and Django</p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-text">
+                I'm a passionate developer with experience in building full-stack applications. 
+                I love creating beautiful, responsive web interfaces and robust backend systems.
+            </p>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                {% for category, skills in skills_by_category.items %}
+                <div class="skill-card">
+                    {% with first_skill=skills|first %}
+                    <i class="{{ first_skill.icon }}"></i>
+                    {% endwith %}
+                    <h3>{{ category }}</h3>
+                    <p>
+                        {% for skill in skills %}
+                        {{ skill.name }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                {% for experience in experiences %}
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>{{ experience.title }}</h3>
+                        <p class="company">{{ experience.company }}</p>
+                        <p class="date">{{ experience.start_date|date:"Y" }} - {% if experience.is_current %}Present{% else %}{{ experience.end_date|date:"Y" }}{% endif %}</p>
+                        <p>{{ experience.description }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                {% for project in projects %}
+                <div class="project-card">
+                    <div class="project-image">
+                        {% if project.image_url %}
+                        <img src="{{ project.image_url }}" alt="{{ project.title }}">
+                        {% else %}
+                        <img src="https://via.placeholder.com/400x300" alt="{{ project.title }}">
+                        {% endif %}
+                    </div>
+                    <div class="project-content">
+                        <h3>{{ project.title }}</h3>
+                        <p>{{ project.description }}</p>
+                        <div class="project-tech">
+                            {% for tech in project.technologies_list %}
+                            <span>{{ tech }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="project-links">
+                            {% if project.github_url %}<a href="{{ project.github_url }}" target="_blank"><i class="fab fa-github"></i> Code</a>{% endif %}
+                            {% if project.live_url %}<a href="{{ project.live_url }}" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>{% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-projects">
+                    <h4>GitHub Projects</h4>
+                    <ul>
+                        {% for project in github_projects %}
+                        <li><a href="{{ project.url }}" target="_blank">{{ project.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <p>&copy; 2026 Isabela Paiva Novais. Todos os direitos reservados.</p>
+                <div class="social-links">
+                    {% for social in social_links %}
+                    <a href="{{ social.url }}" target="_blank" title="{{ social.name }}" class="social-link">
+                        <i class="{{ social.icon }}"></i>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
