@@ -8,3 +8,14 @@
 !requirements.txt
 !README.md
 !.env.example
+__pycache__/
+*.pyc
+*.pyo
+db.sqlite3
+/media/
+/staticfiles/
+.env
+.DS_Store
+venv/
+.vscode/
+*.log
