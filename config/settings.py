@@ -4,6 +4,7 @@ Django settings for portfolio project.
 
 import os
 from pathlib import Path
+import shutil
 from dotenv import load_dotenv
 
 # Carregar .env.production em produção
@@ -70,11 +71,10 @@ DATABASES = {
 
 # Correção para SQLite no Vercel (Filesystem Read-Only)
 if os.getenv('VERCEL'):
-    import shutil
     db_source = BASE_DIR / 'db.sqlite3'
     db_dest = Path('/tmp/db.sqlite3')
     # Copia o banco para /tmp onde é permitido escrever
-    if db_source.exists() and not db_dest.exists():
+    if db_source.exists():
         shutil.copy2(db_source, db_dest)
     DATABASES['default']['NAME'] = db_dest
 
