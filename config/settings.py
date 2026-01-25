@@ -4,7 +4,6 @@ Django settings for portfolio project.
 
 import os
 from pathlib import Path
-import shutil
 from dotenv import load_dotenv
 
 # Carregar .env.production em produção
@@ -65,18 +64,9 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3' if not os.getenv('VERCEL') else ':memory:',
     }
 }
-
-# Correção para SQLite no Vercel (Filesystem Read-Only)
-if os.getenv('VERCEL'):
-    db_source = BASE_DIR / 'db.sqlite3'
-    db_dest = Path('/tmp/db.sqlite3')
-    # Copia o banco para /tmp onde é permitido escrever
-    if db_source.exists():
-        shutil.copy2(db_source, db_dest)
-    DATABASES['default']['NAME'] = db_dest
 
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
