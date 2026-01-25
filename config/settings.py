@@ -18,11 +18,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-change-this-in-production'
 
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-# ALLOWED_HOSTS - Adiciona dinamicamente o domínio do Vercel
 ALLOWED_HOSTS = ['*']
-if os.getenv('VERCEL_URL'):
-    ALLOWED_HOSTS.append(os.getenv('VERCEL_URL'))
-ALLOWED_HOSTS.extend(['.vercel.app', '.now.sh', 'localhost', '127.0.0.1'])
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -118,3 +114,5 @@ if not DEBUG:
         'font-src': ("'self'", "fonts.gstatic.com"),
         'img-src': ("'self'", "data:", "https:"),
     }
+
+CSRF_TRUSTED_ORIGINS = ['https://*.vercel.app']
