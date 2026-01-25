@@ -68,6 +68,16 @@ DATABASES = {
     }
 }
 
+# Correção para SQLite no Vercel (Filesystem Read-Only)
+if os.getenv('VERCEL'):
+    import shutil
+    db_source = BASE_DIR / 'db.sqlite3'
+    db_dest = Path('/tmp/db.sqlite3')
+    # Copia o banco para /tmp onde é permitido escrever
+    if db_source.exists() and not db_dest.exists():
+        shutil.copy2(db_source, db_dest)
+    DATABASES['default']['NAME'] = db_dest
+
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
